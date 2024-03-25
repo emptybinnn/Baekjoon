@@ -7,8 +7,8 @@ int main(){
     
     int r, c;
     cin >> r >> c;
-    
     int cnt;
+    
     int cnt2=0;
     int minn = 32;
 
