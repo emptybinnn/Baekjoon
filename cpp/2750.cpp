@@ -21,8 +21,9 @@ int main(){
     }
 
     for(int i=0 ; i<10001 ; i++){
-        if(num[i]){
+        while(num[i]){
             cout << i << "\n";
+            num[i]--;
         }
     }
 }
