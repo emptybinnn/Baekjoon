@@ -23,7 +23,7 @@ struct Queue {
             rear++;
         }
     }
-    int pop(int inp){
+    int pop(){
         int temp;
         
         if(front == rear){
@@ -33,11 +33,12 @@ struct Queue {
         temp = queue[0];
         for(int i=0 ; i <=(rear-1) ; i++){
             queue[i] = queue[i+1];
+            rear--;
         }
         return temp;
     }
     int size(){
-        return rear+1;
+        return rear;
     }
 
     int empty(){
@@ -49,7 +50,7 @@ struct Queue {
         }
     }
     
-    int front(){
+    int front_value(){
         if(front == rear){
             return -1;
         }
@@ -58,7 +59,7 @@ struct Queue {
         }
     }
 
-    int back(){
+    int back_value(){
         if(front == rear){
             return -1;
         }
@@ -67,4 +68,34 @@ struct Queue {
         }
     }
 
+};
+
+int main(){
+    ios::sync_with_stdio(0);
+	cin.tie(0); cout.tie(0);
+
+    int N, X;
+	string op;
+	cin >> N;
+    int capacity = 10000;
+	struct Queue Q(capacity);
+ 
+	for (int i = 0; i < N; i++) {
+		cin >> op;
+		if (op == "push") {
+			cin >> X;
+			Q.push(X);
+		}
+		else if (op == "pop") {
+            cout << Q.pop() << '\n';
+		} else if (op == "size") {
+			cout << Q.size() << '\n';
+		} else if (op == "empty") {
+			cout << Q.empty() << '\n';
+		} else if (op == "front") {
+		    cout << Q.front_value() << '\n';
+		} else if (op == "back") {
+			cout << Q.back_value() << '\n';
+		}
+	}
 }
