@@ -33,12 +33,12 @@ struct Queue {
         temp = queue[0];
         for(int i=0 ; i <=(rear-1) ; i++){
             queue[i] = queue[i+1];
-            rear--;
         }
+        rear--;
         return temp;
     }
     int size(){
-        return rear;
+        return rear-front;
     }
 
     int empty(){
@@ -64,7 +64,7 @@ struct Queue {
             return -1;
         }
         else{
-            return(queue[rear]);
+            return(queue[rear-1]);
         }
     }
 
